@@ -7,6 +7,7 @@ struct RootView: View {
         AppShellView {
             NavigationCoordinator(state: state)
         }
+        .task { Haptics.prepare() }
         .environment(\.barakaahTheme, state.theme)
         .environment(state)
     }
