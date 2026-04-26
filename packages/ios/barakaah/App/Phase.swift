@@ -6,9 +6,15 @@ enum Phase {
     case app
 }
 
-enum Tab: Int, CaseIterable {
+enum Tab: String, CaseIterable {
     case home
-    case prayer
-    case dhikr
+    case salah
+    case tasbih
     case profile
+}
+
+enum Route: Hashable {
+    case quran
+    case adhkar
+    case appEditor
 }
