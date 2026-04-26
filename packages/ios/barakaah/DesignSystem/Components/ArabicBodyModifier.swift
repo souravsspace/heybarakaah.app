@@ -16,3 +16,19 @@ extension View {
         modifier(ArabicBodyModifier(size: size))
     }
 }
+
+// MARK: - ArabicText View
+
+struct ArabicText: View {
+    @Environment(\.barakaahTheme) private var theme
+    
+    let text: String
+    var size: CGFloat = 22
+    
+    var body: some View {
+        Text(text)
+            .font(theme.scaledArabicBody(size: size))
+            .foregroundStyle(theme.palette.txt)
+            .environment(\.layoutDirection, .rightToLeft)
+    }
+}
