@@ -42,6 +42,7 @@ struct Sigil: View {
                 .fill(color.opacity(0.5))
                 .frame(width: 6 * s, height: 6 * s)
         }
+        .accessibilityHidden(true)
         .frame(width: size, height: size)
     }
 }
