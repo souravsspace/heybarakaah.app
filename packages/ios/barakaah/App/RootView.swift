@@ -1,20 +1,14 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var theme = BarakaahTheme.default
-    
+    @State private var state = AppState()
+
     var body: some View {
-        VStack {
-            Text("Barakaah")
-                .font(theme.scaledSerif(size: 38, weight: .light))
-                .foregroundStyle(theme.palette.txt)
+        AppShellView {
+            NavigationCoordinator(state: state)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background {
-            Color.bgGradient(for: theme.theme)
-                .ignoresSafeArea()
-        }
-        .environment(\.barakaahTheme, theme)
+        .environment(\.barakaahTheme, state.theme)
+        .environment(state)
     }
 }
 
