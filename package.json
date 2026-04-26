@@ -1,0 +1,23 @@
+{
+  "name": "heybarakaah_app",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "bun@1.3.10",
+  "private": true,
+  "scripts": {},
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "catalog": {
+      "@types/bun": "1.3.13",
+      "typescript": "^5"
+    }
+  },
+  "devDependencies": {
+    "@types/bun": "catalog:"
+  },
+  "peerDependencies": {
+    "typescript": "catalog:"
+  }
+}
