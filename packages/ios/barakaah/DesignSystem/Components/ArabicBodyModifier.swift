@@ -17,6 +17,30 @@ extension View {
     }
 }
 
+// MARK: - Enhanced Arabic Modifier with Runtime Font Switching
+
+struct ArabicTextModifier: ViewModifier {
+    @Environment(\.barakaahTheme) private var theme
+
+    var size: CGFloat = 22
+    var lineHeight: CGFloat = 1.95
+    var color: Color? = nil
+
+    func body(content: Content) -> some View {
+        content
+            .font(Typography.arabicFont(theme.arabic, size: size, weight: .regular))
+            .lineSpacing((lineHeight - 1) * size)
+            .environment(\.layoutDirection, .rightToLeft)
+            .foregroundStyle(color ?? theme.palette.txt)
+    }
+}
+
+extension View {
+    func arabicBody(size: CGFloat = 22, lineHeight: CGFloat = 1.95, color: Color? = nil) -> some View {
+        modifier(ArabicTextModifier(size: size, lineHeight: lineHeight, color: color))
+    }
+}
+
 // MARK: - ArabicText View
 
 struct ArabicText: View {
