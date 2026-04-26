@@ -74,7 +74,10 @@ struct OBReadyView: View {
                 
                 Spacer()
                 
-                PrimaryButton(action: { state.phase = .app }) {
+                PrimaryButton(action: { 
+                    Persistence.didOnboard = true
+                    state.phase = .app 
+                }) {
                     Text("Enter Barakaah")
                 }
                 
