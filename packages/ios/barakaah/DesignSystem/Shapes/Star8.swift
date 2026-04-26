@@ -51,6 +51,7 @@ struct Star8: View {
                 .stroke(color.opacity(0.3), lineWidth: strokeWidth)
                 .frame(width: innerCircleSize, height: innerCircleSize)
         }
+        .accessibilityHidden(true)
         .frame(width: size, height: size)
     }
 }
