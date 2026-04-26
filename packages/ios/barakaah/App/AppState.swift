@@ -33,8 +33,12 @@ final class AppState {
 
     // MARK: - Dynamic Content
     var ayahIndex: Int = 0
-    var dhikrIndex: Int = 0
-    var dhikrCount: Int = 21
+    var dhikrIndex: Int = 0 {
+        didSet { Persistence.dhikrIndex = dhikrIndex }
+    }
+    var dhikrCount: Int = 21 {
+        didSet { Persistence.dhikrCount = dhikrCount }
+    }
     var completed: [String: Bool] = [:]
     var currentMins: Int = 720
 
@@ -111,6 +115,10 @@ final class AppState {
         } else {
             theme = .default
         }
+
+        // Restore dhikr state only if partially through a session
+        dhikrIndex = Persistence.dhikrIndex
+        dhikrCount = Persistence.dhikrCount
     }
 }
 
